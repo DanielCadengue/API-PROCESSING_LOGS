@@ -37,7 +37,7 @@
       <muleVersion>4.4.0</muleVersion>
       <username>DanielCICD</username>
       <password>Mulesoft@2022</password>
-      <applicationName>CICD-DANIEL</applicationName>
+      <applicationName>api-processing-logger-v2</applicationName>
       <environment>Sandbox</environment>
       <workers>1</workers>
       <workerType>Micro</workerType>
