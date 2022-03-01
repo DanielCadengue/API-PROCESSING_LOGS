@@ -32,6 +32,18 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
+			
+				<cloudHubDeployment>
+	  <uri>https://anypoint.mulesoft.com</uri>
+      <muleVersion>4.4.0</muleVersion>
+      <username>DanielCICD</username>
+      <password>Mulesoft@2022</password>
+      <applicationName>CICD-DANIEL</applicationName>
+      <environment>Sandbox</environment>
+      <workers>1</workers>
+      <workerType>Micro</workerType>
+      <objectStoreV2>true</objectStoreV2>
+      </cloudHubDeployment>
 					<sharedLibraries>
 						<sharedLibrary>
 							<groupId>com.microsoft.sqlserver</groupId>
