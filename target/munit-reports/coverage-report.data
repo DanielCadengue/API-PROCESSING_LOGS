@@ -1,0 +1,159 @@
+{
+  "resources": [
+    {
+      "name": "implementation.xml",
+      "weight": 93.75,
+      "flows": [
+        {
+          "name": "mainFlow",
+          "type": "FLOW",
+          "locations": [
+            {
+              "path": "mainFlow/processors/1",
+              "lineNumber": 22
+            },
+            {
+              "path": "mainFlow/processors/0",
+              "lineNumber": 21
+            }
+          ],
+          "coveredLocations": [
+            {
+              "path": "mainFlow/processors/1",
+              "lineNumber": 22
+            },
+            {
+              "path": "mainFlow/processors/0",
+              "lineNumber": 21
+            }
+          ]
+        },
+        {
+          "name": "processflow",
+          "type": "FLOW",
+          "locations": [
+            {
+              "path": "processflow/processors/2/route/2/processors/0/route/0/processors/0",
+              "lineNumber": 64
+            },
+            {
+              "path": "processflow/processors/1",
+              "lineNumber": 37
+            },
+            {
+              "path": "processflow/processors/2/route/2/processors/0/route/1/processors/0",
+              "lineNumber": 89
+            },
+            {
+              "path": "processflow/processors/2/route/2/processors/0/route/2/processors/0",
+              "lineNumber": 93
+            },
+            {
+              "path": "processflow/processors/2/route/1/processors/0",
+              "lineNumber": 46
+            },
+            {
+              "path": "processflow/processors/2/route/2/processors/0/route/0/processors/3",
+              "lineNumber": 86
+            },
+            {
+              "path": "processflow/processors/2/route/1/processors/1",
+              "lineNumber": 48
+            },
+            {
+              "path": "processflow/processors/2/route/0/processors/0",
+              "lineNumber": 40
+            },
+            {
+              "path": "processflow/processors/0",
+              "lineNumber": 33
+            },
+            {
+              "path": "processflow/processors/2/route/2/processors/0/route/1/processors/1",
+              "lineNumber": 90
+            },
+            {
+              "path": "processflow/processors/3",
+              "lineNumber": 99
+            },
+            {
+              "path": "processflow/processors/2/route/2/processors/0/route/0/processors/2",
+              "lineNumber": 82
+            },
+            {
+              "path": "processflow/processors/2/route/2/processors/0/route/0/processors/1",
+              "lineNumber": 65
+            }
+          ],
+          "coveredLocations": [
+            {
+              "path": "processflow/processors/2/route/2/processors/0/route/0/processors/0",
+              "lineNumber": 64
+            },
+            {
+              "path": "processflow/processors/1",
+              "lineNumber": 37
+            },
+            {
+              "path": "processflow/processors/2/route/2/processors/0/route/1/processors/0",
+              "lineNumber": 89
+            },
+            {
+              "path": "processflow/processors/2/route/1/processors/0",
+              "lineNumber": 46
+            },
+            {
+              "path": "processflow/processors/2/route/2/processors/0/route/0/processors/3",
+              "lineNumber": 86
+            },
+            {
+              "path": "processflow/processors/2/route/1/processors/1",
+              "lineNumber": 48
+            },
+            {
+              "path": "processflow/processors/2/route/0/processors/0",
+              "lineNumber": 40
+            },
+            {
+              "path": "processflow/processors/0",
+              "lineNumber": 33
+            },
+            {
+              "path": "processflow/processors/2/route/2/processors/0/route/1/processors/1",
+              "lineNumber": 90
+            },
+            {
+              "path": "processflow/processors/3",
+              "lineNumber": 99
+            },
+            {
+              "path": "processflow/processors/2/route/2/processors/0/route/0/processors/2",
+              "lineNumber": 82
+            },
+            {
+              "path": "processflow/processors/2/route/2/processors/0/route/0/processors/1",
+              "lineNumber": 65
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "error.xml",
+      "weight": 6.25,
+      "flows": [
+        {
+          "name": "global-error-handler",
+          "type": "ERROR_HANDLER",
+          "locations": [
+            {
+              "path": "global-error-handler/0/processors/0",
+              "lineNumber": 9
+            }
+          ],
+          "coveredLocations": []
+        }
+      ]
+    }
+  ]
+}

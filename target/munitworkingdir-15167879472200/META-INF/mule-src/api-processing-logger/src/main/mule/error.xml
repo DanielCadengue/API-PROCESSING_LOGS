@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd">
+	<error-handler name="global-error-handler" doc:id="aa08dc41-535e-4296-bbce-1c847ec647e1" >
+		<on-error-propagate enableNotifications="true" logException="true" doc:name="On Error Propagate" doc:id="ac8747b6-e32e-4dcb-b06e-da7b644abd33" >
+			<file:write doc:name="Log Error" doc:id="41f4d664-a9cd-47a7-827b-f23acd1fc4c3" path='#["api-logger" ++ (now() as String {format:"-dd-MM-yyyy-HH-mm-ss"}) ++ ".txt"]' config-ref="File_Config">
+				<file:content ><![CDATA[#[%dw 2.0
+output application/json
+---
+{
+	"state": "Falha",
+	"errorMessage": error.errorMessage,
+	"errorType": error.errorType,
+	"failingComponent":error.failingComponent,
+	"description":error.description
+}]]]></file:content>
+			</file:write>
+		</on-error-propagate>
+	</error-handler>
+</mule>

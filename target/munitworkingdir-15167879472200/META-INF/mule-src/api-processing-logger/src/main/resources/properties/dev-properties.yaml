@@ -1,0 +1,45 @@
+# Conexão com banco de dados  
+postgres:
+  url: jdbc:postgresql://ec2-54-227-246-76.compute-1.amazonaws.com:5432/d91q4ge52rcn4l
+  driver: org.postgresql.Driver
+  user: iyebbsavxdxsat
+  pass: 8e458d07f4da0a99ed88cab1c4e9db61138d063396bb52132bfabf541f18072b
+  
+#tabela: 1| arquivo: 2| nenhum log: 0
+log_destination: "1"
+
+  
+  
+  
+#Configuração do PATH do local
+sftp:
+  pathlog: C:\Users\danie\Mulesoft\Estudo\Logs
+  
+  
+  
+#Configuração URL da API
+endpoint:
+  host: "0.0.0.0"
+  port: "8081"
+  path: "api/logger"
+  
+  
+# Conexão com email
+email:
+  host: "smtp.gmail.com"
+  port: "587"
+  user: "danielcsilvasoares@gmail.com"
+  password: "Gmail@2022"
+  
+# Conexão com salesforce
+sfdc:
+  auth:
+    key: "3MVG9EMJF5MdlzDpZV.paxtHtZy6vA344xEbxHcqgR2xtlFhSW2f5jmE2xxdXx6MqEqd6X8yVNlU2w4ceMCim"
+    password: "bS34dEFz"
+    principal: "integracao.batch@bradescoseguros.com.br.braseg.sbxqaov"
+    endpoint: "https://test.salesforce.com/services/oauth2/token"
+    keystore: "salesforce.jks"
+    
+
+# devido a vulnerabilidade do Log4j (Não alterar)
+formatMsgNoLookups: "true"

@@ -1,0 +1,9 @@
+SUCCESS - Test com-registros-arquivo finished Successfully.
+SUCCESS - Test chamada finished Successfully.
+SUCCESS - Test Sem-registros finished Successfully.
+SUCCESS - Test com-registros-tabela finished Successfully.
+SUCCESS - Test com-registros-sales-arquivo finished Successfully.
+
+=============================================================================
+Tests run: 5 - Failures: 0 - Errors: 0 - Skipped: 0 - Time elapsed: 6,653 sec
+=============================================================================

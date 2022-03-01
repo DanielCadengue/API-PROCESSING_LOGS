@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>MUnit Coverage Report</title>
+    <link rel="stylesheet" type="text/css" href="./assets/styles/mulesoft-styles.css">
+    <link rel="stylesheet" type="text/css" href="./assets/styles/tsorter.css">
+</head>
+<body>
+<div class="mulesoft-topbar">
+    <div class="mulesoft-appbar">
+        <div class="muleicon muleicon-logo"></div>
+        <div class="anypoint-brand">MUnit Coverage Report - implementation.xml</div>
+    </div>
+</div>
+
+<div class="col-md-2 col-md-offset-1 sidemenu">
+    <ul class="sidemenu-back">
+        <li><a href="./summary.html">Resources</a></li>
+    </ul>
+</div>
+
+<div class="col-md-8">
+    <h2 class="text-bold">Resource Coverage - #Processors 14 / 15</h2>
+    <div class="progress">
+        <span>93.33%</span>
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="93.333" aria-valuemin="0"
+             aria-valuemax="100" style="width: 93.333%;">
+        </div>
+    </div>
+    <ul class="list-unstyled">
+        <li><h4><b>Required Resource Coverage :</b>
+            N/A
+        </h4></li>
+        <li><h4><b>Required Container Coverage :</b>
+            N/A
+        </h4></li>
+    </ul>
+    <h2 class="text-bold">Containers</h2>
+    <table id="resources_table" class="table table-featured table-hover sortable">
+        <thead>
+        <tr>
+            <th colspan="2">Name</th>
+            <th>Type</th>
+            <th data-tsorter="numeric">#Covered Processors</th>
+            <th data-tsorter="numeric">#Processors</th>
+            <th data-tsorter="coverage">Coverage*</th>
+        </tr>
+        </thead>
+        <tbody id="table-body">
+        <tr>
+            <td colspan="2">mainFlow</td>
+            <td>Flow</td>
+            <td>2</td>
+            <td>2</td>
+            <td>
+                <div class="progress">
+                    <span>100%</span>
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100"
+                         aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">processflow</td>
+            <td>Flow</td>
+            <td>12</td>
+            <td>13</td>
+            <td>
+                <div class="progress">
+                    <span>92.31%</span>
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="92.308"
+                         aria-valuemin="0" aria-valuemax="100" style="width: 92.308%;">
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+        <table>
+            <tbody>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        1
+                    </td>
+                    <td>
+
+                            &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        2
+                    </td>
+                    <td>
+
+                            
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        3
+                    </td>
+                    <td>
+
+                            &lt;mule xmlns:jms=&quot;http://www.mulesoft.org/schema/mule/jms&quot;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        4
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	xmlns:vm=&quot;http://www.mulesoft.org/schema/mule/vm&quot;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        5
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	xmlns:sockets=&quot;http://www.mulesoft.org/schema/mule/sockets&quot;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        6
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	xmlns:db=&quot;http://www.mulesoft.org/schema/mule/db&quot;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        7
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	xmlns:email=&quot;http://www.mulesoft.org/schema/mule/email&quot; xmlns:file=&quot;http://www.mulesoft.org/schema/mule/file&quot;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        8
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	xmlns:ee=&quot;http://www.mulesoft.org/schema/mule/ee/core&quot;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        9
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	xmlns:salesforce=&quot;http://www.mulesoft.org/schema/mule/salesforce&quot; xmlns:http=&quot;http://www.mulesoft.org/schema/mule/http&quot; xmlns=&quot;http://www.mulesoft.org/schema/mule/core&quot; xmlns:doc=&quot;http://www.mulesoft.org/schema/mule/documentation&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        10
+                    </td>
+                    <td>
+
+                            http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd 
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        11
+                    </td>
+                    <td>
+
+                            http://www.mulesoft.org/schema/mule/email http://www.mulesoft.org/schema/mule/email/current/mule-email.xsd 
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        12
+                    </td>
+                    <td>
+
+                            http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd 
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        13
+                    </td>
+                    <td>
+
+                            http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        14
+                    </td>
+                    <td>
+
+                            http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        15
+                    </td>
+                    <td>
+
+                            http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        16
+                    </td>
+                    <td>
+
+                            http://www.mulesoft.org/schema/mule/sockets http://www.mulesoft.org/schema/mule/sockets/current/mule-sockets.xsd
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        17
+                    </td>
+                    <td>
+
+                            http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        18
+                    </td>
+                    <td>
+
+                            http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd&quot;&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        19
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	&lt;flow name=&quot;mainFlow&quot; doc:id=&quot;170fb565-8106-4e54-9da4-ad17536bb78d&quot; &gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        20
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;http:listener doc:name=&quot;Listener&quot; doc:id=&quot;a1d373cf-58db-4b86-9743-43a519cd3bf1&quot; path=&quot;${endpoint.path}&quot; config-ref=&quot;HTTP_Listener_configteste&quot;/&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        21
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;vm:publish queueName=&quot;queueLog&quot; doc:name=&quot;queueLog&quot; doc:id=&quot;c0ef4ef5-8835-41e1-9f92-7d76c1752b02&quot; config-ref=&quot;VM_Config&quot;/&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        22
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;ee:transform doc:name=&quot;Transform Message&quot; doc:id=&quot;2dcd2279-0608-40ff-bcc2-a6cf075e194a&quot; &gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        23
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;ee:message &gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        24
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;ee:set-payload &gt;&lt;![CDATA[%dw 2.0
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        25
+                    </td>
+                    <td>
+
+                            output application/json
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        26
+                    </td>
+                    <td>
+
+                            ---
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        27
+                    </td>
+                    <td>
+
+                            message: &quot;Logs sendo executados&quot;]]&gt;&lt;/ee:set-payload&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        28
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;/ee:message&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        29
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;/ee:transform&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        30
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	&lt;/flow&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        31
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	&lt;flow name=&quot;processflow&quot; doc:id=&quot;618b9b17-9a7f-4f4c-88bd-44948efc6d00&quot; &gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        32
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;vm:listener queueName=&quot;queueLog&quot; doc:name=&quot;Listener&quot; doc:id=&quot;a4d40c09-6e3e-4de1-ad7e-35e3041b3c9a&quot; config-ref=&quot;VM_Config&quot;/&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        33
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;logger level=&quot;INFO&quot; doc:name=&quot;inicial Integration log&quot; doc:id=&quot;931b86ff-5589-49ae-bad2-090ef2aec96a&quot; message=&quot;inicial Integration log&quot;/&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        34
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;set-variable value=&#39;#[%dw 2.0
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        35
+                    </td>
+                    <td>
+
+                            &amp;#10;output application/json
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        36
+                    </td>
+                    <td>
+
+                            &amp;#10;---
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        37
+                    </td>
+                    <td>
+
+                            &amp;#10;(now() as String {format:&quot;-dd-MM-yyyy-HH-mm-ss&quot;})]&#39; doc:name=&quot;dateTime&quot; doc:id=&quot;dc448d28-83dd-4078-90ef-f820cd7617ee&quot; variableName=&quot;dateTime&quot; /&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        38
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;choice doc:name=&quot;Choice&quot; doc:id=&quot;aab329b2-0e8b-4064-b421-0f027a71c765&quot; &gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        39
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;when expression=&quot;#[(payload == 0) or (payload == []) or (payload == [0]) or sizeOf(payload) == -1]&quot;&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        40
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;file:write doc:name=&quot;no registration to be logged&quot; doc:id=&quot;04389435-a15f-491c-9130-9077f697886e&quot; config-ref=&quot;File_Config&quot; path=&#39;#[app.name ++ vars.dateTime ++ &quot;.txt&quot;]&#39;&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        41
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;file:content &gt;&lt;![CDATA[#[&quot;Nenhum registro para ser monitorado&quot;]]]&gt;&lt;/file:content&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        42
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;/file:write&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        43
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        44
+                    </td>
+                    <td>
+
+                            &lt;/when&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        45
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;when expression=&#39;#[(payload.flagError == true)]&#39;&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        46
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;file:write doc:name=&quot;log file&quot; doc:id=&quot;3e6a8986-a0e3-4080-af52-09fe3da698a1&quot; config-ref=&quot;File_Config&quot; path=&#39;#[payload.integrationName ++ vars.dateTime ++ &quot;.txt&quot;]&#39;&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        47
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;/file:write&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        48
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;email:send doc:name=&quot;envio email&quot; doc:id=&quot;34280ea0-095a-4a03-ba99-1425d9bfb1a2&quot; config-ref=&quot;2Email_SMTP&quot; fromAddress=&quot;danielcsilvasoares@gmail.com&quot; subject=&#39;#[&quot;Integration Issue &quot; ++ payload.integrationName]&#39;&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        49
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;email:to-addresses&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        50
+                    </td>
+                    <td style="text-indent:60px">
+
+                            						&lt;email:to-address value=&quot;daniel.c.soares@capgemini.com&quot; /&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        51
+                    </td>
+                    <td style="text-indent:60px">
+
+                            						&lt;email:to-address value=&quot;bruna.takagaki@capgemini.com&quot; /&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        52
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;/email:to-addresses&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        53
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;email:cc-addresses&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        54
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;/email:cc-addresses&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        55
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;email:body contentType=&quot;text/html&quot;&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        56
+                    </td>
+                    <td style="text-indent:60px">
+
+                            						&lt;email:content&gt;&lt;![CDATA[#[&quot;Api gerou o erro de &quot; ++ payload.errorType ++ &quot; Data &quot; ++ vars.dateTime ++ &quot;, para mais detalhes, consultar o arquivo, Integration Issue &quot; ++ payload.integrationName ++ vars.dateTime]]]&gt;&lt;/email:content&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        57
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;/email:body&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        58
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;/email:send&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        59
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        60
+                    </td>
+                    <td>
+
+                            &lt;/when&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        61
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;when expression=&quot;#[(payload.flagError == false)]&quot;&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        62
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;choice doc:name=&quot;Choice&quot; doc:id=&quot;7738d2da-21e1-43cd-acd0-1dfd18258165&quot;&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        63
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;when expression=&#39;#[p(&quot;log_destination&quot;) as Number == 1]&#39;&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        64
+                    </td>
+                    <td style="text-indent:60px">
+
+                            						&lt;logger level=&quot;INFO&quot; doc:name=&quot;Logger&quot; doc:id=&quot;425c7b5f-00c6-4754-85a1-95b24fadb08f&quot; message=&quot;Logs sendo tratados&quot;/&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        65
+                    </td>
+                    <td style="text-indent:60px">
+
+                            						&lt;ee:transform doc:name=&quot;Transform Message&quot; doc:id=&quot;3f631aed-3251-43d6-a545-6a4342680423&quot;&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        66
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;ee:message&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        67
+                    </td>
+                    <td style="text-indent:60px">
+
+                            						&lt;ee:set-payload&gt;&lt;![CDATA[%dw 2.0
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        68
+                    </td>
+                    <td>
+
+                            output application/csv separator = &quot;,&quot; , quoteValues = true , encoding = &#39;UTF-8&#39;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        69
+                    </td>
+                    <td>
+
+                            var nomeCampo = if (payload.records?) &quot;records&quot; else &quot;campoErro&quot;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        70
+                    </td>
+                    <td>
+
+                            ---
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        71
+                    </td>
+                    <td>
+
+                            payload[nomeCampo] map ((registro) -&gt; {
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        72
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        73
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	&quot;Date&quot;: now() as DateTime,
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        74
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	&quot;Object&quot;: payload.object,
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        75
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	&quot;Fields&quot;: registro.fields pluck ((value, key) -&gt; (key ++ &quot;: &quot; ++ value)) joinBy &quot;, &quot;,
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        76
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	&quot;Message&quot;: registro.errorMessage
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        77
+                    </td>
+                    <td>
+
+                            
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        78
+                    </td>
+                    <td>
+
+                              }
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        79
+                    </td>
+                    <td>
+
+                            )]]&gt;&lt;/ee:set-payload&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        80
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;/ee:message&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        81
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;/ee:transform&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        82
+                    </td>
+                    <td style="text-indent:60px">
+
+                            						&lt;db:bulk-insert doc:name=&quot;Bulk insert&quot; doc:id=&quot;feaf5909-e2d1-4e48-a2c0-34937f525dc4&quot; config-ref=&quot;Config_Select_By_CRM&quot;&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        83
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;db:sql&gt;&lt;![CDATA[INSERT INTO public.&quot;TB_estudo_mulesoft&quot; (Date, Object, Fields, Message)
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        84
+                    </td>
+                    <td>
+
+                            VALUES (:Date, :Object, :Fields, :Message)]]&gt;&lt;/db:sql&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        85
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;/db:bulk-insert&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        86
+                    </td>
+                    <td style="text-indent:60px">
+
+                            						&lt;logger level=&quot;INFO&quot; doc:name=&quot;Logs inseridos&quot; doc:id=&quot;54121220-3902-4ba6-b860-0f567a03e0b2&quot; message=&quot;Logs inseridos&quot; /&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        87
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;/when&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        88
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;when expression=&#39;#[p(&quot;log_destination&quot;) as Number == 2]&#39;&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        89
+                    </td>
+                    <td style="text-indent:60px">
+
+                            						&lt;file:write doc:name=&quot;log file&quot; doc:id=&quot;320c7124-dde9-41ef-8438-c67b304af058&quot; path=&#39;#[payload.integrationName ++ vars.dateTime ++ &quot;.txt&quot;]&#39; config-ref=&quot;File_Config&quot; /&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        90
+                    </td>
+                    <td style="text-indent:60px">
+
+                            						&lt;logger level=&quot;INFO&quot; doc:name=&quot;Logger&quot; doc:id=&quot;00460608-55c1-4317-83a0-60366a0c3938&quot; /&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        91
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;/when&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        92
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;otherwise&gt;
+                    </td>
+                </tr>
+                    <tr class="uncovered">
+
+                    <td class="code-line">
+                        93
+                    </td>
+                    <td style="text-indent:60px">
+
+                            						&lt;logger level=&quot;INFO&quot; doc:name=&quot;Logger&quot; doc:id=&quot;37b79055-3e6a-488b-912c-b6f379046261&quot; message=&quot;Nenhum log foi gravado!&quot; /&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        94
+                    </td>
+                    <td style="text-indent:50px">
+
+                            					&lt;/otherwise&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        95
+                    </td>
+                    <td style="text-indent:40px">
+
+                            				&lt;/choice&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        96
+                    </td>
+                    <td style="text-indent:30px">
+
+                            			&lt;/when&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        97
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        98
+                    </td>
+                    <td>
+
+                            &lt;/choice&gt;
+                    </td>
+                </tr>
+                    <tr class="covered">
+
+                    <td class="code-line">
+                        99
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;logger level=&quot;INFO&quot; doc:name=&quot;Integration log executed&quot; doc:id=&quot;814d4a08-61f1-4140-9c53-02b66338e65c&quot; message=&quot;Integration log executed&quot;/&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        100
+                    </td>
+                    <td style="text-indent:20px">
+
+                            		&lt;error-handler ref=&quot;global-error-handler&quot; /&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        101
+                    </td>
+                    <td style="text-indent:10px">
+
+                            	&lt;/flow&gt;
+                    </td>
+                </tr>
+                    <tr class="no-flow-line">
+
+                    <td class="code-line">
+                        102
+                    </td>
+                    <td>
+
+                            &lt;/mule&gt;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        </tbody>
+    </table>
+    <h4>(*) Number of processors executed during test</h4>
+</div>
+<script type="text/javascript" src="./assets/js/tsorter.min.js"></script>
+<script type="text/javascript">
+    function init() {
+        var sorter = tsorter.create('resources_table', 0, {
+            coverage: function (row) {
+                var cov = this.getCell(row).childNodes[1].childNodes[3].attributes['aria-valuenow'].textContent;
+                return parseFloat(cov.substring(cov[0].length - 1), 10);
+            }
+        });
+    }
+
+    window.onload = init;
+
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:email="http://www.mulesoft.org/schema/mule/email"
+	xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns:smb="http://www.mulesoft.org/schema/mule/smb" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce" xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/smb http://www.mulesoft.org/schema/mule/smb/current/mule-smb.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/email http://www.mulesoft.org/schema/mule/email/current/mule-email.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd">
+	<global-property doc:name="Global Property" doc:id="c05001b2-e29a-478f-b1ba-519a0bcd2d7b" name="mule.env" value="dev" />
+	<configuration-properties doc:name="Configuration properties" doc:id="660b4e30-0a3a-4097-8fc4-9b6ee5701310" file="properties/${mule.env}-properties.yaml" />
+	<salesforce:sfdc-config name="Salesforce_Config" doc:name="Salesforce Config" doc:id="b2c93125-7f0a-4412-9122-80aacd97f51e" >
+		<salesforce:jwt-connection consumerKey="${sfdc.auth.key}" keyStore="${sfdc.auth.keystore}" storePassword="${sfdc.auth.password}" principal="${sfdc.auth.principal}" tokenEndpoint="${sfdc.auth.endpoint}" />
+	</salesforce:sfdc-config>
+	<http:listener-config name="HTTP_Listener_configteste" doc:name="HTTP Listener config" doc:id="4c36a6cf-61b6-4f23-a86c-fb5b2fc20de4">
+		<http:listener-connection host="${endpoint.host}" port="${endpoint.port}" />
+	</http:listener-config>
+	<file:config name="File_Config" doc:name="File Config" doc:id="f85cbb7a-75ed-40c6-81bd-d6278c06b3e0" >
+		<file:connection workingDir="${sftp.pathlog}" />
+	</file:config>
+	<email:smtp-config name="2Email_SMTP" doc:name="Email SMTP" doc:id="a35089b9-e19a-4e8c-976a-2119ee650ebd" >
+		<email:smtp-connection host="${email.host}" user="${email.user}" password="${email.password}" port="${email.port}">
+			<email:properties >
+				<email:property key="mail.smtp.starttls.enable" value="true" />
+			</email:properties>
+		</email:smtp-connection>
+	</email:smtp-config>
+	<db:config name="Config_Select_By_CRM" doc:name="Database Config" doc:id="92e0e878-00af-4009-9a1f-9768415127e3" >
+		<db:generic-connection url="${postgres.url}" driverClassName="${postgres.driver}" user="${postgres.user}" password="${postgres.pass}"/>
+	
+</db:config>
+	<vm:config name="VM_Config" doc:name="VM Config" doc:id="7a76a74f-3a72-4a62-b447-496f75ffa6af" >
+		<vm:queues >
+			<vm:queue queueName="queueLog" />
+		</vm:queues>
+	</vm:config>
+</mule>

@@ -1,0 +1,50 @@
+{
+  "configs": [
+    "implementation.xml",
+    "error.xml",
+    "global.xml",
+    "main.xml"
+  ],
+  "secureProperties": [],
+  "redeploymentEnabled": true,
+  "name": "bfe3ef2a-8799-4232-b360-20f0884e15cf:api-processing-logger:1.0.2",
+  "minMuleVersion": "4.4.0",
+  "requiredProduct": "MULE_EE",
+  "classLoaderModelLoaderDescriptor": {
+    "id": "mule",
+    "attributes": {
+      "exportedResources": [
+        "application-types.xml",
+        "error.xml",
+        "global.xml",
+        "implementation.xml",
+        "log4j2.xml",
+        "properties/dev-properties.yaml",
+        "properties/hml-properties.yaml",
+        "properties/prd-properties.yaml",
+        "salesforce.jks",
+        "log4j2-test.xml",
+        "mainFlowtest/assert_expression_payload.dwl",
+        "mainFlowtest/mock_attributes.dwl",
+        "mainFlowtest/mock_payload.dwl",
+        "mainFlowtest/set-event_attributes.dwl",
+        "mainFlowtest/set-event_payload.dwl",
+        "mock/assert_expression_payload.dwl",
+        "mock/mock_monitoring_failed.dwl",
+        "mock/mock_payload.dwl",
+        "mock/mock_variable_.dwl",
+        "mock/no_records.dwl",
+        "mock/set-event_attributes.dwl",
+        "mock/set-event_payload-arquivo.dwl",
+        "mock/set-event_payload.dwl",
+        "mock/there_are_records.dwl"
+      ],
+      "includeTestDependencies": "true",
+      "exportedPackages": []
+    }
+  },
+  "bundleDescriptorLoader": {
+    "id": "mule",
+    "attributes": {}
+  }
+}

@@ -1,0 +1,28 @@
+mssql:
+  user: apstscrm
+  pass: apstscrm
+  host: 10.205.106.72
+  db: DB_CRM
+  
+sftp:
+  pathlog: C:\Users\dansoare\OneDrive - Capgemini\Documents\Log-Integration
+  
+endpoint:
+  host: "0.0.0.0"
+  port: "8081"
+  path: "api/logger"
+  
+email:
+  host: "smtp.gmail.com"
+  port: "587"
+  user: "danielcsilvasoares@gmail.com"
+  password: "Gmail@2022"
+
+sfdc:
+  auth:
+    key: "3MVG9EMJF5MdlzDpZV.paxtHtZy6vA344xEbxHcqgR2xtlFhSW2f5jmE2xxdXx6MqEqd6X8yVNlU2w4ceMCim"
+    password: "bS34dEFz"
+    principal: "integracao.batch@bradescoseguros.com.br.braseg.sbxqaov"
+    endpoint: "https://test.salesforce.com/services/oauth2/token"
+    keystore: "salesforce.jks"
+    

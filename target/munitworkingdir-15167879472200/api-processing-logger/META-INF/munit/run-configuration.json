@@ -1,0 +1,73 @@
+{
+  "runToken": "97762e9a-6761-4974-8a27-4b12c71821f0",
+  "projectName": "api-processing-logger",
+  "domainLocation": "",
+  "tags": [],
+  "testNames": [],
+  "suitePaths": [
+    "main.xml"
+  ],
+  "allSuitePaths": [
+    "main.xml"
+  ],
+  "skipAfterFailure": false,
+  "notifierConfigurations": [
+    {
+      "clazz": "org.mule.munit.remote.notifiers.ConsoleNotifier",
+      "parameters": [
+        {
+          "name": "runToken",
+          "type": "java.lang.String",
+          "value": "97762e9a-6761-4974-8a27-4b12c71821f0"
+        }
+      ]
+    }
+  ],
+  "coverageConfiguration": {
+    "runCoverage": true,
+    "randomizeCoveragePort": true,
+    "suitePaths": [
+      "main.xml"
+    ],
+    "ignoredFiles": [],
+    "ignoredFlowNames": []
+  },
+  "containerConfiguration": {
+    "type": "EMBEDDED",
+    "value": {
+      "mavenConfiguration": {
+        "settingsXmlFilePath": "C:\\Users\\danie\\.m2\\settings.xml",
+        "globalSettingsXmlFilePath": "C:\\Program Files\\apache-maven-3.8.4\\conf\\settings.xml",
+        "mavenRepositoryDirectoryPath": "C:\\Users\\danie\\.m2\\repository",
+        "activeProfiles": [],
+        "offlineMode": false,
+        "forcePolicyUpdate": true,
+        "ignoreArtifactDescriptorRepositories": false,
+        "remoteRepositories": [
+          {
+            "id": "mulesoft-releases",
+            "url": "https://repository.mulesoft.org/releases/"
+          },
+          {
+            "id": "central",
+            "url": "https://repo.maven.apache.org/maven2"
+          }
+        ]
+      },
+      "serverPluginConfigurations": [
+        {
+          "groupId": "com.mulesoft.munit.plugins",
+          "artifactId": "munit-coverage-plugin",
+          "version": "2.3.6",
+          "type": "jar",
+          "classifier": "mule-server-plugin"
+        }
+      ],
+      "runtimeId": "4.4.0",
+      "product": "MULE_EE",
+      "munitWorkingDirectoryPath": "C:\\Users\\danie\\Mulesoft\\Estudo\\work\\api-processing-logger-v2\\target\\munitworkingdir-15167879472200",
+      "log4JConfigurationFilePath": "C:\\Users\\danie\\Mulesoft\\Estudo\\work\\api-processing-logger-v2\\target\\test-classes\\log4j2-test.xml",
+      "type": "EMBEDDED"
+    }
+  }
+}

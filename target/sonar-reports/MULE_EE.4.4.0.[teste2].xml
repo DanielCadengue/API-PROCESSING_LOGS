@@ -1,0 +1,9 @@
+<testExecutions version="1">
+  <file path="src\test\munit\main.xml">
+    <testCase name="com-registros-arquivo" duration="336"/>
+    <testCase name="chamada" duration="1203"/>
+    <testCase name="Sem-registros" duration="484"/>
+    <testCase name="com-registros-tabela" duration="1106"/>
+    <testCase name="com-registros-sales-arquivo" duration="974"/>
+  </file>
+</testExecutions>
