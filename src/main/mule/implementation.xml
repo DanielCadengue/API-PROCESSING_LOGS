@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:jms="http://www.mulesoft.org/schema/mule/jms"
+	xmlns:vm="http://www.mulesoft.org/schema/mule/vm"
+	xmlns:sockets="http://www.mulesoft.org/schema/mule/sockets"
+	xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:email="http://www.mulesoft.org/schema/mule/email" xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd 
+http://www.mulesoft.org/schema/mule/email http://www.mulesoft.org/schema/mule/email/current/mule-email.xsd 
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd 
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
+http://www.mulesoft.org/schema/mule/sockets http://www.mulesoft.org/schema/mule/sockets/current/mule-sockets.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd">
+	<flow name="mainFlow" doc:id="170fb565-8106-4e54-9da4-ad17536bb78d" >
+		<http:listener doc:name="Listener" doc:id="a1d373cf-58db-4b86-9743-43a519cd3bf1" path="${endpoint.path}" config-ref="HTTP_Listener_configteste"/>
+		<vm:publish queueName="queueLog" doc:name="queueLog" doc:id="c0ef4ef5-8835-41e1-9f92-7d76c1752b02" config-ref="VM_Config"/>
+		<ee:transform doc:name="Transform Message" doc:id="2dcd2279-0608-40ff-bcc2-a6cf075e194a" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+message: "Logs sendo executados"]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="processflow" doc:id="618b9b17-9a7f-4f4c-88bd-44948efc6d00" >
+		<vm:listener queueName="queueLog" doc:name="Listener" doc:id="a4d40c09-6e3e-4de1-ad7e-35e3041b3c9a" config-ref="VM_Config"/>
+		<logger level="INFO" doc:name="inicial Integration log" doc:id="931b86ff-5589-49ae-bad2-090ef2aec96a" message="inicial Integration log"/>
+		<set-variable value='#[%dw 2.0
+&#10;output application/json
+&#10;---
+&#10;(now() as String {format:"-dd-MM-yyyy-HH-mm-ss"})]' doc:name="dateTime" doc:id="dc448d28-83dd-4078-90ef-f820cd7617ee" variableName="dateTime" />
+		<choice doc:name="Choice" doc:id="aab329b2-0e8b-4064-b421-0f027a71c765" >
+			<when expression="#[(payload == 0) or (payload == []) or (payload == [0]) or sizeOf(payload) == -1]">
+				<file:write doc:name="no registration to be logged" doc:id="04389435-a15f-491c-9130-9077f697886e" config-ref="File_Config" path='#[app.name ++ vars.dateTime ++ ".txt"]'>
+					<file:content ><![CDATA[#["Nenhum registro para ser monitorado"]]]></file:content>
+				</file:write>
+			
+</when>
+			<when expression='#[(payload.flagError == true)]'>
+				<file:write doc:name="log file" doc:id="3e6a8986-a0e3-4080-af52-09fe3da698a1" config-ref="File_Config" path='#[payload.integrationName ++ vars.dateTime ++ ".txt"]'>
+				</file:write>
+				<email:send doc:name="envio email" doc:id="34280ea0-095a-4a03-ba99-1425d9bfb1a2" config-ref="2Email_SMTP" fromAddress="danielcsilvasoares@gmail.com" subject='#["Integration Issue " ++ payload.integrationName]'>
+					<email:to-addresses>
+						<email:to-address value="daniel.c.soares@capgemini.com" />
+						<email:to-address value="bruna.takagaki@capgemini.com" />
+					</email:to-addresses>
+					<email:cc-addresses>
+					</email:cc-addresses>
+					<email:body contentType="text/html">
+						<email:content><![CDATA[#["Api gerou o erro de " ++ payload.errorType ++ " Data " ++ vars.dateTime ++ ", para mais detalhes, consultar o arquivo, Integration Issue " ++ payload.integrationName ++ vars.dateTime]]]></email:content>
+					</email:body>
+				</email:send>
+			
+</when>
+			<when expression="#[(payload.flagError == false)]">
+				<choice doc:name="Choice" doc:id="7738d2da-21e1-43cd-acd0-1dfd18258165">
+					<when expression='#[p("log_destination") as Number == 1]'>
+						<logger level="INFO" doc:name="Logger" doc:id="425c7b5f-00c6-4754-85a1-95b24fadb08f" message="Logs sendo tratados"/>
+						<ee:transform doc:name="Transform Message" doc:id="3f631aed-3251-43d6-a545-6a4342680423">
+					<ee:message>
+						<ee:set-payload><![CDATA[%dw 2.0
+output application/csv separator = "," , quoteValues = true , encoding = 'UTF-8'
+var nomeCampo = if (payload.records?) "records" else "campoErro"
+---
+payload[nomeCampo] map ((registro) -> {
+	
+	"Date": now() as DateTime,
+	"Object": payload.object,
+	"Fields": registro.fields pluck ((value, key) -> (key ++ ": " ++ value)) joinBy ", ",
+	"Message": registro.errorMessage
+
+  }
+)]]></ee:set-payload>
+					</ee:message>
+				</ee:transform>
+						<db:bulk-insert doc:name="Bulk insert" doc:id="feaf5909-e2d1-4e48-a2c0-34937f525dc4" config-ref="Config_Select_By_CRM">
+					<db:sql><![CDATA[INSERT INTO public."TB_estudo_mulesoft" (Date, Object, Fields, Message)
+VALUES (:Date, :Object, :Fields, :Message)]]></db:sql>
+				</db:bulk-insert>
+						<logger level="INFO" doc:name="Logs inseridos" doc:id="54121220-3902-4ba6-b860-0f567a03e0b2" message="Logs inseridos" />
+					</when>
+					<when expression='#[p("log_destination") as Number == 2]'>
+						<file:write doc:name="log file" doc:id="320c7124-dde9-41ef-8438-c67b304af058" path='#[payload.integrationName ++ vars.dateTime ++ ".txt"]' config-ref="File_Config" />
+						<logger level="INFO" doc:name="Logger" doc:id="00460608-55c1-4317-83a0-60366a0c3938" />
+					</when>
+					<otherwise>
+						<logger level="INFO" doc:name="Logger" doc:id="37b79055-3e6a-488b-912c-b6f379046261" message="Nenhum log foi gravado!" />
+					</otherwise>
+				</choice>
+			</when>
+		
+</choice>
+		<logger level="INFO" doc:name="Integration log executed" doc:id="814d4a08-61f1-4140-9c53-02b66338e65c" message="Integration log executed"/>
+		<error-handler ref="global-error-handler" />
+	</flow>
+</mule>

@@ -1,0 +1,23 @@
+{
+  "lineEnding": "CRLF",
+  "numberRecordsFailed": 98,
+  "externalIdFieldName": "ExternalID__c",
+  "numberRecordsProcessed": 100,
+  "systemModstamp": "2022-01-06T18:30:16.000+0000",
+  "errorMessage": null,
+  "apiActiveProcessingTime": 513,
+  "concurrencyMode": "Parallel",
+  "retries": 0,
+  "apexProcessingTime": 419,
+  "createdDate": "2022-01-06T18:30:12.000+0000",
+  "apiVersion": "52.0",
+  "id": "75001000002cTX3",
+  "state": "JobComplete",
+  "jobType": "V2Ingest",
+  "totalProcessingTime": 637,
+  "contentType": "CSV",
+  "operation": "upsert",
+  "createdById": "0056g000004nJnTAAU",
+  "object": "InsurancePolicy",
+  "columnDelimiter": "COMMA"
+}

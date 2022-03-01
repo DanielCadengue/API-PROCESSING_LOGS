@@ -1,0 +1,33 @@
+{
+  "configs": [
+    "implementation.xml",
+    "error.xml",
+    "global.xml"
+  ],
+  "secureProperties": [],
+  "redeploymentEnabled": true,
+  "name": "bfe3ef2a-8799-4232-b360-20f0884e15cf:api-processing-logger:1.0.2",
+  "minMuleVersion": "4.4.0",
+  "requiredProduct": "MULE_EE",
+  "classLoaderModelLoaderDescriptor": {
+    "id": "mule",
+    "attributes": {
+      "exportedPackages": [],
+      "exportedResources": [
+        "application-types.xml",
+        "error.xml",
+        "global.xml",
+        "implementation.xml",
+        "log4j2.xml",
+        "properties/dev-properties.yaml",
+        "properties/hml-properties.yaml",
+        "properties/prd-properties.yaml",
+        "salesforce.jks"
+      ]
+    }
+  },
+  "bundleDescriptorLoader": {
+    "id": "mule",
+    "attributes": {}
+  }
+}

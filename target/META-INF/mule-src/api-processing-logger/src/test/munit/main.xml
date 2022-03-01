@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+    <munit:config name="main.xml">
+        <munit:parameterizations>
+            <munit:parameterization name="teste1">
+                <munit:parameters>
+                    <munit:parameter propertyName="log_destination" value="1"/>
+                   
+                </munit:parameters>
+            </munit:parameterization>
+            <munit:parameterization name="teste2">
+                <munit:parameters>
+                    <munit:parameter propertyName="log_destination" value="2"/>
+                </munit:parameters>
+            </munit:parameterization>
+        </munit:parameterizations>
+    </munit:config>
+	<munit:test name="Sem-registros"
+		doc:id="0930286d-8118-489e-a049-16723b924c15" timeOut="1000000000">
+		<munit:behavior>
+			<munit:set-event doc:name="Set Input" doc:id="06612077-64eb-4ba8-bfb2-be101c62e245" >
+				<munit:payload value="0" encoding="UTF-8" mediaType="application/json" />
+			</munit:set-event>
+
+
+		</munit:behavior>
+		<munit:execution>
+			<flow-ref doc:name="processflow"
+				doc:id="36891da5-84b3-4123-90e3-f33c6a16ff60" name="processflow" />
+
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-that
+				doc:name="payload must notNullValue()"
+				doc:id="861e1225-e84c-4411-8918-19f9558e1ac0"
+				expression="#[payload]" is="#[MunitTools::notNullValue()]"
+				message="payload must notNullValue()" />
+		
+</munit:validation>
+</munit:test>
+	<munit:test name="com-registros-tabela" doc:id="de89cea5-7f13-4218-ba3a-3e2d7fe95bf2" >
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock Bulk insert" doc:id="336b3864-a8ee-4ae9-903f-c99f598e58d6" processor="db:bulk-insert">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="feaf5909-e2d1-4e48-a2c0-34937f525dc4" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value="#[output application/java --- readUrl('classpath://mock\set-event_payload.dwl')]" mediaType="application/java" encoding="UTF-8" />
+					<munit-tools:variables >
+						<munit-tools:variable key="dateTime" value="#[output application/json --- readUrl('classpath://mock\mock_variable_.dwl')]" mediaType="application/json" encoding="UTF-8" />
+					</munit-tools:variables>
+				</munit-tools:then-return>
+			
+</munit-tools:mock-when>
+			<munit:set-event doc:name="Set Input" doc:id="0a2e01e5-8a48-4a51-b2b5-7117ebf9729a" >
+				<munit:payload value="#[output application/json --- readUrl('classpath://mock\set-event_payload.dwl')]" encoding="UTF-8" mediaType="application/json" />
+				<munit:attributes value="#[readUrl('classpath://mock\set-event_attributes.dwl')]" />
+			
+</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to processflow" doc:id="72ff623b-e6c6-4799-954f-8452e8c30da2" name="processflow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="e71b05f3-166f-409d-9410-12758a9bef87" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[import * from dw::test::Asserts 
+ ---
+payload must beObject()]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="com-registros-arquivo" doc:id="13d504d7-96c4-4a1e-87d3-90952f3890c0">
+			<munit:behavior>
+				<munit-tools:mock-when doc:name="file:write" doc:id="0f1c05be-432a-47fa-8267-143b18f50f8f" processor="file:write">
+					<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="3e6a8986-a0e3-4080-af52-09fe3da698a1" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value='#[output application/json
+&#10;---
+&#10;"Criado com sucesso"
+&#10;
+&#10;]' mediaType="application/json" encoding="UTF-8" />
+				</munit-tools:then-return>
+				</munit-tools:mock-when>
+				<munit-tools:mock-when doc:name="email:send" doc:id="e7f16e7c-cc5d-471a-9950-97d8a520f957" processor="email:send">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="34280ea0-095a-4a03-ba99-1425d9bfb1a2" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value='#[output application/json
+&#10;---
+&#10;"Criado com sucesso"
+&#10;
+&#10;]' />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+			<munit:set-event doc:name="Copy_of_Set Input" doc:id="74a3cf56-416f-4799-bf1a-616c3714bb44">
+				<munit:payload value="#[output application/json --- readUrl('classpath://mock\set-event_payload-arquivo.dwl')]" encoding="UTF-8" mediaType="application/json" />
+				</munit:set-event>
+			</munit:behavior>
+			<munit:execution>
+				<flow-ref doc:name="processflow" doc:id="50b4f829-19ee-4219-827a-32f775f17976" name="processflow" />
+			</munit:execution>
+			<munit:validation>
+			<munit-tools:assert doc:name="Assert expression" doc:id="6fd5abec-a567-478a-8bf2-1c3e5609561a" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[import * from dw::test::Asserts 
+ ---
+payload must beString()]]]></munit-tools:that>
+			</munit-tools:assert>
+			</munit:validation>
+		</munit:test>
+	<munit:test name="com-registros-sales-arquivo" doc:id="d287eeea-3007-4496-8978-7a316623a894">
+			<munit:behavior>
+				<munit-tools:mock-when doc:name="file:write" doc:id="3b95cce0-0644-4621-8661-7fea2aa3d5ed" processor="file:write">
+					<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="320c7124-dde9-41ef-8438-c67b304af058" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value='#[output application/json&#10;&#10;&#10;&#10;---&#10;&#10;&#10;&#10;["Criado com sucesso"]&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;]' mediaType="application/json" encoding="UTF-8" />
+					<munit-tools:variables >
+						<munit-tools:variable key="dateTime" value="#[output application/json --- readUrl('classpath://mock\mock_variable_.dwl')]" mediaType="application/json" encoding="UTF-8" />
+					</munit-tools:variables>
+				</munit-tools:then-return>
+				
+</munit-tools:mock-when>
+			<munit:set-event doc:name="Set Input" doc:id="791b310f-5dac-49f3-bf7b-f7ea56512f4d">
+					<munit:payload value="#[output application/json --- readUrl('classpath://mock\set-event_payload.dwl')]" encoding="UTF-8" mediaType="application/json" />
+					<munit:attributes value="#[readUrl('classpath://mock\set-event_attributes.dwl')]" />
+				</munit:set-event>
+			</munit:behavior>
+			<munit:execution>
+				<flow-ref doc:name="processflow" doc:id="595a8dd6-80eb-4a23-a17b-bb0f6a339fd6" name="processflow" />
+			</munit:execution>
+			<munit:validation>
+				<munit-tools:assert doc:name="Assert payload" doc:id="53902133-3d6b-4d92-ab7f-f1de390ed08f" message="The payload does not match">
+					<munit-tools:that><![CDATA[#[import * from dw::test::Asserts 
+ ---
+payload must beArray()]]]></munit-tools:that>
+				</munit-tools:assert>
+			</munit:validation>
+		</munit:test>
+		
+		<munit:test name="chamada" doc:id="f03d08f2-d437-4595-84b7-7ce02344a44c" >
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock queueLog" doc:id="0594137a-b7aa-4cb0-a3c9-3d342e2942b5" processor="vm:publish">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="c0ef4ef5-8835-41e1-9f92-7d76c1752b02" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value="#[output application/json --- readUrl('classpath://mainFlowtest\mock_payload.dwl')]" mediaType="application/json" encoding="UTF-8" />
+					<munit-tools:attributes value="#[readUrl('classpath://mainFlowtest\mock_attributes.dwl')]" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+			<munit:set-event doc:name="Set Input" doc:id="7e8e64d3-e676-4329-a434-5a0cc9a7bdf1" >
+				<munit:payload value="#[output application/json --- readUrl('classpath://mainFlowtest\set-event_payload.dwl')]" encoding="UTF-8" mediaType="application/json" />
+				<munit:attributes value="#[readUrl('classpath://mainFlowtest\set-event_attributes.dwl')]" />
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to mainFlow" doc:id="64c88ba1-d79d-4bc2-a55f-6965c9c50da7" name="mainFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="ae7d0a15-d14d-4541-aa9e-69af3b69860b" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import mainFlowtest::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	
+
+
+</mule>
